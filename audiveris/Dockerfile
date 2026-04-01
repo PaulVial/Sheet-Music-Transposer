@@ -24,7 +24,14 @@ WORKDIR /audiveris
 # Copy the built distribution from builder
 COPY --from=builder /build/app/build/install/app/ .
 
-# Audiveris stores user data (tessdata cache, logs) here
+# Pre-install English tessdata so Audiveris can recognize text (tempo, title, dynamics)
+# Audiveris looks for tessdata in ~/.config/AudiverisLtd/audiveris/tessdata/
+RUN apt-get update && apt-get install -y --no-install-recommends wget && rm -rf /var/lib/apt/lists/*
+RUN mkdir -p /root/.config/AudiverisLtd/audiveris/tessdata && \
+    wget -q -O /root/.config/AudiverisLtd/audiveris/tessdata/eng.traineddata \
+    https://github.com/tesseract-ocr/tessdata/raw/4.1.0/eng.traineddata
+
+# Audiveris stores runtime data (logs, book files) here
 ENV AUDIVERIS_HOME=/audiveris-data
 RUN mkdir -p /audiveris-data
 

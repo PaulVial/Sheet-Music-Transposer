@@ -11,26 +11,46 @@ Supported instruments: see INSTRUMENTS dict below.
 """
 
 import sys
-from music21 import converter, instrument, interval, stream, key
+from music21 import converter, dynamics, instrument, interval, layout, metadata, note, stream, key, text
 
 # Transposition intervals relative to concert pitch (C).
-# Value = semitones that must be ADDED to concert pitch to get written pitch.
-# e.g. alto saxophone sounds a major 6th lower than written, so +9 semitones written vs concert.
+# semitones = added to concert pitch to get written pitch.
+# midi_min / midi_max = practical written range (MIDI note numbers).
 INSTRUMENTS = {
-    "flute":            {"name": "Flute",            "semitones": 0},
-    "oboe":             {"name": "Oboe",             "semitones": 0},
-    "bassoon":          {"name": "Bassoon",          "semitones": 0},
-    "piano":            {"name": "Piano",            "semitones": 0},
-    "violin":           {"name": "Violin",           "semitones": 0},
-    "clarinet_bb":      {"name": "Clarinet in Bb",   "semitones": 2},
-    "trumpet_bb":       {"name": "Trumpet in Bb",    "semitones": 2},
-    "soprano_sax":      {"name": "Soprano Saxophone","semitones": 2},
-    "tenor_sax":        {"name": "Tenor Saxophone",  "semitones": 14},  # Bb + octave
-    "alto_sax":         {"name": "Alto Saxophone",   "semitones": 9},
-    "baritone_sax":     {"name": "Baritone Saxophone","semitones": 21}, # Eb + octave
-    "french_horn":      {"name": "French Horn",      "semitones": 7},
-    "clarinet_eb":      {"name": "Clarinet in Eb",   "semitones": -3},
+    "flute":            {"name": "Flute",             "semitones": 0,  "midi_min": 60, "midi_max": 98},
+    "oboe":             {"name": "Oboe",              "semitones": 0,  "midi_min": 58, "midi_max": 91},
+    "bassoon":          {"name": "Bassoon",           "semitones": 0,  "midi_min": 34, "midi_max": 75},
+    "piano":            {"name": "Piano",             "semitones": 0,  "midi_min": 21, "midi_max": 108},
+    "violin":           {"name": "Violin",            "semitones": 0,  "midi_min": 55, "midi_max": 103},
+    "clarinet_bb":      {"name": "Clarinet in Bb",    "semitones": 2,  "midi_min": 50, "midi_max": 91},
+    "trumpet_bb":       {"name": "Trumpet in Bb",     "semitones": 2,  "midi_min": 52, "midi_max": 84},
+    "soprano_sax":      {"name": "Soprano Saxophone", "semitones": 2,  "midi_min": 50, "midi_max": 87},
+    "tenor_sax":        {"name": "Tenor Saxophone",   "semitones": 14, "midi_min": 50, "midi_max": 87},
+    "alto_sax":         {"name": "Alto Saxophone",    "semitones": 9,  "midi_min": 46, "midi_max": 87},
+    "baritone_sax":     {"name": "Baritone Saxophone","semitones": 21, "midi_min": 46, "midi_max": 87},
+    "french_horn":      {"name": "French Horn",       "semitones": 7,  "midi_min": 40, "midi_max": 77},
+    "clarinet_eb":      {"name": "Clarinet in Eb",    "semitones": -3, "midi_min": 50, "midi_max": 91},
 }
+
+
+def fit_to_range(transposed_score: stream.Score, target: dict) -> int:
+    """Shift notes that fall outside the target instrument range by octaves."""
+    midi_min = target["midi_min"]
+    midi_max = target["midi_max"]
+    adjusted = 0
+
+    for n in transposed_score.recurse().getElementsByClass(note.Note):
+        midi = n.pitch.midi
+        if midi > midi_max:
+            octaves = -((midi - midi_max + 11) // 12)
+            n.pitch.midi += octaves * 12
+            adjusted += 1
+        elif midi < midi_min:
+            octaves = (midi_min - midi + 11) // 12
+            n.pitch.midi += octaves * 12
+            adjusted += 1
+
+    return adjusted
 
 
 def transpose_score(input_path: str, source_key: str, target_key: str, output_path: str) -> None:
@@ -64,6 +84,35 @@ def transpose_score(input_path: str, source_key: str, target_key: str, output_pa
         part.partName = target["name"]
         for inst in part.recurse().getElementsByClass(instrument.Instrument):
             inst.partName = target["name"]
+
+    # Remove title and credit text boxes (they cause large top spacing in MuseScore)
+    transposed.metadata = metadata.Metadata()
+    for tb in list(transposed.recurse().getElementsByClass(text.TextBox)):
+        tb.activeSite.remove(tb)
+
+    # Strip page layout entirely (causes top spacing issues)
+    for el in list(transposed.recurse().getElementsByClass(layout.PageLayout)):
+        el.activeSite.remove(el)
+
+    # For system layout: keep system breaks (isNew=True) but clear dimension values
+    # so MuseScore respects original line breaks without inheriting Audiveris spacing
+    for el in list(transposed.recurse().getElementsByClass(layout.SystemLayout)):
+        if el.isNew:
+            el.topDistanceOdd = None
+            el.topDistanceEven = None
+            el.leftMargin = None
+            el.rightMargin = None
+            el.distance = None
+        else:
+            el.activeSite.remove(el)
+
+    # Remove dynamics added by music21 that were not in the original OMR output
+    for d in list(transposed.recurse().getElementsByClass(dynamics.Dynamic)):
+        d.activeSite.remove(d)
+
+    adjusted = fit_to_range(transposed, target)
+    if adjusted:
+        print(f"Range adjustment: {adjusted} note(s) shifted by octave to fit {target['name']} range")
 
     transposed.write("musicxml", fp=output_path)
     print(f"Output written to {output_path}")
