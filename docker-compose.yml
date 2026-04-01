@@ -1,4 +1,13 @@
 services:
+  pipeline:
+    build:
+      context: ./pipeline
+      dockerfile: Dockerfile
+    volumes:
+      - ./tests:/data/tests
+      - ./pipeline:/app
+    entrypoint: ["python", "transpose.py"]
+
   audiveris:
     build:
       context: ./audiveris
