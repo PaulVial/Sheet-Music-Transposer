@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/PaulVialard/.claude/projects/c--Users-PaulVialard-OneDrive---ARGON-CO-Documents-Codes-Sheet-Music-Transposer/memory/**)",
+      "Bash(java -version)",
+      "Bash(javac -version)",
+      "Bash(docker --version)",
+      "Bash(docker info:*)",
+      "Bash(docker run:*)",
+      "Bash(MSYS_NO_PATHCONV=1 docker run --rm --entrypoint find sheet-music-transposer-audiveris /audiveris -maxdepth 3)",
+      "Bash(unzip -p gariboldi-thirty-easy-and-progressive-studies-no1.mxl)"
+    ]
+  }
+}

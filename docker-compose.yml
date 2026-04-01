@@ -1,0 +1,13 @@
+services:
+  audiveris:
+    build:
+      context: ./audiveris
+      dockerfile: Dockerfile
+    volumes:
+      - ./tests:/data/tests
+      - audiveris-data:/audiveris-data   # cache tessdata entre les runs
+    # Override CMD at runtime, ex:
+    # docker compose run audiveris -export -output /data/tests/output /data/tests/perfect/xxx.pdf
+
+volumes:
+  audiveris-data:

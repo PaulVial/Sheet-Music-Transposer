@@ -1,0 +1,61 @@
+2026-04-01 15:28:41,577 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]                 Book.java:560  | 1 sheet in /data/tests/perfect/gariboldi-thirty-easy-and-progressive-studies-no1.pdf
+2026-04-01 15:28:41,731 INFO []                 Book.java:2565 | Stored /book.xml
+2026-04-01 15:28:41,732 INFO []                 Book.java:2525 | Book stored as /data/tests/output/gariboldi-thirty-easy-and-progressive-studies-no1.omr
+2026-04-01 15:28:41,754 INFO []                 Book.java:1929 | Book reaching PAGE on sheets:[#1]
+2026-04-01 15:28:41,756 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | LOAD
+2026-04-01 15:28:42,013 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]            SheetStub.java:1278 | Loaded image #1 2480x3507 from /data/tests/perfect/gariboldi-thirty-easy-and-progressive-studies-no1.pdf
+2026-04-01 15:28:42,017 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | BINARY
+2026-04-01 15:28:42,285 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | SCALE
+2026-04-01 15:28:42,302 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]         ScaleBuilder.java:255  | Beam  guessed height: 11 -- mid of [5..18]
+2026-04-01 15:28:42,304 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]         ScaleBuilder.java:271  | Beam measured height:  7 -- 0.15 of [5..18] range at 57% of needed quorum
+2026-04-01 15:28:42,305 WARN [gariboldi-thirty-easy-and-progressive-studies-no1]         ScaleBuilder.java:300  | No reliable beam height found, guessed value: 11
+2026-04-01 15:28:42,306 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]         ScaleBuilder.java:401  | Normalized black jitter: 5.26 %
+2026-04-01 15:28:42,306 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]            ScaleStep.java:65   | Scale{ interline(18,19,19) line(2,2,3) beam(11 extra)}
+2026-04-01 15:28:42,307 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | GRID
+2026-04-01 15:28:42,589 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       LinesRetriever.java:1500 | Global slope: 0.00000
+2026-04-01 15:28:42,621 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]    ClustersRetriever.java:326  | Retrieved raw line clusters: 9 of sizes [5] with interline(18,19,19)
+2026-04-01 15:28:42,715 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]            PeakGraph.java:310  | Systems: #1[1] #2[2] #3[3] #4[4] #5[5] #6[6] #7[7] #8[8] #9[9]
+2026-04-01 15:28:42,905 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]        SystemManager.java:134  | Indentation detected for system #1
+2026-04-01 15:28:42,906 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]        SystemManager.java:779  | 1 part along 9 systems
+2026-04-01 15:28:42,908 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]                 Book.java:543  | Created scores: [{Score 1}]
+2026-04-01 15:28:42,910 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | HEADERS
+2026-04-01 15:28:43,445 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | STEM_SEEDS
+2026-04-01 15:28:43,511 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]        StemSeedsStep.java:86   | stem(3 max:4)
+2026-04-01 15:28:43,556 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | BEAMS
+2026-04-01 15:28:45,466 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | LEDGERS
+2026-04-01 15:28:45,625 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | HEADS
+2026-04-01 15:28:47,759 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]        HeadSeedTally.java:235  | Scale information: HeadSeeds{NOTEHEAD_VOID[L:0.4] NOTEHEAD_BLACK[L:0.5]}
+2026-04-01 15:28:47,761 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | STEMS
+2026-04-01 15:28:47,963 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | REDUCTION
+2026-04-01 15:28:48,014 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]        ReductionStep.java:105  | Stems free length median value: 66 pixels, 3.5 interlines
+2026-04-01 15:28:48,022 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | CUE_BEAMS
+2026-04-01 15:28:48,023 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]         CueBeamsStep.java:81   | Step CUE_BEAMS is skipped because small heads switch is off
+2026-04-01 15:28:48,024 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | TEXTS
+2026-04-01 15:28:48,137 WARN [gariboldi-thirty-easy-and-progressive-studies-no1]         TesseractOCR.java:335  | The collection of supported languages is empty
+2026-04-01 15:28:48,139 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]              OcrUtil.java:106  | Missing support for 'eng' language(s)
+2026-04-01 15:28:48,151 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | MEASURES
+2026-04-01 15:28:48,163 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]                 Page.java:307  | 49 raw measures: [5 in system#1, 6 in system#2, 6 in system#3, 5 in system#4, 6 in system#5, 6 in system#6, 5 in system#7, 5 in system#8, 5 in system#9]
+2026-04-01 15:28:48,164 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | CHORDS
+2026-04-01 15:28:48,189 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | CURVES
+2026-04-01 15:28:48,785 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]         SlursBuilder.java:240  | Slurs: 43
+2026-04-01 15:28:48,822 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]      SegmentsBuilder.java:155  | Segments: 88
+2026-04-01 15:28:48,842 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | SYMBOLS
+2026-04-01 15:28:49,414 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | LINKS
+2026-04-01 15:28:49,418 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]        SymbolsLinker.java:258  | No chord linked to OctaveShiftInter#4128{(0.716) staff:1 OTTAVA ALTA} at java.awt.Point[x=2178,y=447]
+2026-04-01 15:28:49,420 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]        SymbolsLinker.java:258  | No chord linked to OctaveShiftInter#4133{(0.273) staff:1 VENTIDUESIMA ALTA} at java.awt.Point[x=2212,y=447]
+2026-04-01 15:28:49,441 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]             KeyInter.java:1189 | No effective key before AlterInter#4218{(0.163) staff:5 NATURAL pitch:-1.0}
+2026-04-01 15:28:49,453 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]        SymbolsLinker.java:258  | No chord linked to OctaveShiftInter#4315{(0.451) staff:8 OTTAVA BASSA} at java.awt.Point[x=686,y=2895]
+2026-04-01 15:28:49,459 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | RHYTHMS
+2026-04-01 15:28:49,504 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]       StepMonitoring.java:98   | PAGE
+2026-04-01 15:28:49,513 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]                 Book.java:2584 | Book{gariboldi-thirty-easy-and-progressive-studies-no1} storing
+2026-04-01 15:28:49,561 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]                 Book.java:2565 | Stored /book.xml
+2026-04-01 15:28:49,650 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]           DataHolder.java:348  | Stored /sheet#1/BINARY.png
+2026-04-01 15:28:50,082 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]                Sheet.java:1583 | Stored /sheet#1/sheet#1.xml
+2026-04-01 15:28:50,084 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]                 Book.java:2525 | Book stored as /data/tests/output/gariboldi-thirty-easy-and-progressive-studies-no1.omr
+2026-04-01 15:28:50,110 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]            SheetStub.java:1655 | Sheet disposed
+2026-04-01 15:28:50,135 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]                 Book.java:2050 | End of Stub#1
+2026-04-01 15:28:50,136 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]                 Book.java:2057 | End of Book{gariboldi-thirty-easy-and-progressive-studies-no1}
+2026-04-01 15:28:50,410 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]            SheetStub.java:1000 | Loaded /sheet#1/sheet#1.xml
+2026-04-01 15:28:50,673 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]      PartwiseBuilder.java:2706 | Exporting sheet(s): [#1]
+2026-04-01 15:28:50,748 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]        ScoreExporter.java:164  | Score gariboldi-thirty-easy-and-progressive-studies-no1 exported to /data/tests/output/gariboldi-thirty-easy-and-progressive-studies-no1.mxl
+2026-04-01 15:28:50,786 INFO [gariboldi-thirty-easy-and-progressive-studies-no1]                Score.java:181  | Closing {Score 1}
