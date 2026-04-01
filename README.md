@@ -35,7 +35,27 @@ Sheet-Music-Transposer/
 
 ## Setup
 
-### 1. Build the Audiveris Docker image
+### 1. Download Audiveris
+
+Download the latest Audiveris release source archive from:
+
+https://github.com/Audiveris/audiveris/releases/latest
+
+Extract the archive into the `audiveris/` folder so the structure looks like this:
+
+```
+audiveris/
+├── Dockerfile
+└── audiveris-5.x.x/
+    └── audiveris-5.x.x/
+        ├── build.gradle
+        ├── gradlew
+        └── ...
+```
+
+Then update the `COPY` path in [audiveris/Dockerfile](audiveris/Dockerfile) if the version number differs from the one already set.
+
+### 2. Build the Audiveris Docker image
 
 This step compiles Audiveris from source inside Docker. It requires an internet connection to download Gradle and Java dependencies. It runs once and takes approximately 5 to 10 minutes.
 
@@ -43,7 +63,7 @@ This step compiles Audiveris from source inside Docker. It requires an internet 
 docker compose build audiveris
 ```
 
-### 2. Run Audiveris on a PDF
+### 3. Run Audiveris on a PDF
 
 ```bash
 bash scripts/run_audiveris.sh tests/perfect/gariboldi-thirty-easy-and-progressive-studies-no1.pdf

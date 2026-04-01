@@ -1,0 +1,20 @@
+# Audiveris — source and build artifacts
+audiveris/audiveris-*/
+audiveris/*.zip
+
+# Test output — generated files
+tests/output/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.code-workspace
