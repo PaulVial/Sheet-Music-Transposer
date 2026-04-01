@@ -23,7 +23,7 @@ No other local dependencies are required. All tools (Audiveris, music21, MuseSco
 Sheet-Music-Transposer/
 ├── audiveris/                  # Audiveris Docker build context
 │   ├── Dockerfile
-│   └── audiveris-5.10.2/       # Audiveris source (not committed, download manually)
+│   └── audiveris-5.10.2/       # Audiveris source
 ├── scripts/
 │   └── run_audiveris.sh        # Run Audiveris on a PDF
 ├── tests/
@@ -35,27 +35,7 @@ Sheet-Music-Transposer/
 
 ## Setup
 
-### 1. Clone the repository
-
-```bash
-git clone <repo-url>
-cd Sheet-Music-Transposer
-```
-
-### 2. Download Audiveris source
-
-Go to the Audiveris releases page on GitHub (Audiveris/audiveris) and download the source archive for version 5.10.2. Extract it so the directory structure matches:
-
-```
-audiveris/
-└── audiveris-5.10.2/
-    └── audiveris-5.10.2/
-        ├── build.gradle
-        ├── gradlew
-        └── ...
-```
-
-### 3. Build the Audiveris Docker image
+### 1. Build the Audiveris Docker image
 
 This step compiles Audiveris from source inside Docker. It requires an internet connection to download Gradle and Java dependencies. It runs once and takes approximately 5 to 10 minutes.
 
@@ -63,7 +43,7 @@ This step compiles Audiveris from source inside Docker. It requires an internet 
 docker compose build audiveris
 ```
 
-### 4. Run Audiveris on a PDF
+### 2. Run Audiveris on a PDF
 
 ```bash
 bash scripts/run_audiveris.sh tests/perfect/gariboldi-thirty-easy-and-progressive-studies-no1.pdf
