@@ -9,7 +9,9 @@
       "Bash(docker run:*)",
       "Bash(MSYS_NO_PATHCONV=1 docker run --rm --entrypoint find sheet-music-transposer-audiveris /audiveris -maxdepth 3)",
       "Bash(unzip -p gariboldi-thirty-easy-and-progressive-studies-no1.mxl)",
-      "Bash(unzip -p gariboldi-no1-alto.mxl)"
+      "Bash(unzip -p gariboldi-no1-alto.mxl)",
+      "Bash(docker exec:*)",
+      "Bash(docker stop:*)"
     ]
   }
 }

@@ -8,6 +8,13 @@ services:
       - ./pipeline:/app
     entrypoint: ["python", "transpose.py"]
 
+  musescore:
+    build:
+      context: ./musescore
+      dockerfile: Dockerfile
+    volumes:
+      - ./tests:/data/tests
+
   audiveris:
     build:
       context: ./audiveris
